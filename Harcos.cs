@@ -49,29 +49,49 @@ namespace HarcosProjekt
         public int MaxEletero { get =>alapEletero+(szint*3); }
         public void Megkuzd(Harcos masikHarcos)
         {
-            if (this.nev.Equals(masikHarcos.nev))
+            if (this==masikHarcos)
             {
                 Console.WriteLine("Hibás név!");
                 return;
             }
-            else if (this.eletero==0&&masikHarcos.eletero==0)
+             if (this.eletero==0||masikHarcos.eletero==0)
             {
                 Console.WriteLine("Hibás életerő!");
                 return;
             }
-            else{
+            
+                masikHarcos.eletero = masikHarcos.eletero - this.Sebzes;
+                if (!(masikHarcos.eletero==0))
+                {
+                    masikHarcos.Tapasztalat = masikHarcos.Tapasztalat + 5;
+                    this.eletero = this.eletero - masikHarcos.Sebzes;
+                    if (!(this.eletero==0))
+                    {
+                        this.Tapasztalat = this.Tapasztalat + 5;
 
-            }
+                    }
+                else
+                {
+                    masikHarcos.Tapasztalat = masikHarcos.Tapasztalat + 10;
+                }
+
+                }
+                else
+                {
+                    this.Tapasztalat = this.Tapasztalat + 10;
+                }
+
+            
         }
         public void Gyogyul()
         {
-            if (eletero==0)
+            if (Eletero==0)
             {
-                eletero = MaxEletero;
+                Eletero = MaxEletero;
             }
             else
             {
-                eletero=eletero+3+szint;
+                Eletero=Eletero+3+szint;
             }
         }
         public override string ToString()
