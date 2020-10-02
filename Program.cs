@@ -13,7 +13,7 @@ namespace HarcosProjekt
         static void Main(string[] args)
         {
             listaBeEsKi();
-            
+            string cselekves="asd";
 
             Console.WriteLine("Kérjem adja meg a harcosa nevét és státusz sablonját:\n");
             Console.WriteLine("Neve:");
@@ -21,7 +21,34 @@ namespace HarcosProjekt
             Console.WriteLine("\nStátusz sablonja:");
             int jatekosStatus = Int32.Parse(Console.ReadLine());
 
+            Harcos jatekos = new Harcos(jatekosHarcosNev, jatekosStatus);
 
+            while (!(cselekves.Equals("c")))
+            {
+                string abc = "";
+                Console.WriteLine("Válassza ki hogy mit szeretne tenni:");
+                Console.WriteLine("a.) Megküzdeni egy harcossal");
+                Console.WriteLine("b.) Gyógyulni");
+                Console.WriteLine("c.) Kilépni");
+                abc = Console.ReadLine();
+                 while (!(abc == "a" || abc == "b" || abc == "c"))
+                {
+                    Console.WriteLine("Rossz betűt adott meg, próbálja meg újra:");
+                    abc = Console.ReadLine();
+                }
+                if (abc=="a")
+                {
+
+                }
+                else if (abc=="b")
+                {
+                    Harcos harcosKlassz = new Harcos.();
+
+                    {
+                        jatekos.Gyogyul(); }
+                }
+                
+            }
 
 
             Console.ReadLine();
